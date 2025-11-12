@@ -93,7 +93,7 @@ Output:
 
 #### 📉 Population Decrease Example — *Hwacheon-gun (화천군)*  
 <p align="left">
-  <img src="graphfolder/화천군_2022_industry_distribution.png" width="800">
+  <img src="graphfolder/화천군_2022_industry_distribution.png" width="1000">
 </p>
 
 | Industry Type | Percentage (2022) |
@@ -109,7 +109,7 @@ Output:
 
 #### 📈 Population Increase Example — *Yongin-si (용인시)*  
 <p align="left">
-  <img src="graphfolder/용인시_2022_industry_distribution.png" width="800">
+  <img src="graphfolder/용인시_2022_industry_distribution.png" width="1000">
 </p>
 
 | Industry Type | Percentage (2022) |
@@ -142,12 +142,17 @@ To predict whether each regional industry will experience growth or decline, we 
 | **KNN**               | 80.5%     | 0.72     | 0.80        | Sensitive to local patterns                       |
 | **Voting (RF + KNN)** | **83.1%** | **0.73** | **0.83**    | Best overall balance between recall and precision |
 
-🔍 Among all labels, small_increase and big_increase achieved the highest recall (0.92 and 0.74 respectively), while big_decrease showed lower recall due to smaller class size (22 samples).
+Among all labels, small_increase and big_increase achieved the highest recall (0.92 and 0.74 respectively), while big_decrease showed lower recall due to smaller class size (22 samples).
 
 
 
-
-
+## Discussion: Policy Insight and Implications
+| Insight                      | Description                                                                                           |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **Industrial Concentration** | Population-decreasing regions show reliance on construction and welfare sectors.                      |
+| **Growth Dynamics**          | Manufacturing and technical service sectors drive employment growth in increasing-population regions. |
+| **Policy Recommendation**    | Workforce support and diversification in declining areas can balance regional disparities.            |
+| **Model Utilization**        | The trained model can serve as a forecasting tool for regional policy planning and industry strategy. |
 
 
 
