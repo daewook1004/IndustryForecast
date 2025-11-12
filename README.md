@@ -66,9 +66,83 @@ Output:
 - Model accuracy and confusion matrices printed in console
 - Predicted labels for 2023 saved in df_goal.csv
 ---
-## Example Results
-### Example Results
+## 📊 Example Results
+### 🧮 Chi-square Test
+| Statistic        | p-value          | Interpretation                                                                                     |
+| ---------------- | ---------------- | -------------------------------------------------------------------------------------------------- |
+| χ² = 304,484.359 | p = 0.0 (< 0.05) | Industrial composition differs significantly between increasing and decreasing population regions. |
 
+### 🏙 Top Industries by Region Type
+<p align="center">
+  <img src="graphfolder/decrease_increase_2022_industry_distribution.png" width="1000">
+</p>
+
+| Region Type             | Major Industries (2022)                                           |
+| ----------------------- | ----------------------------------------------------------------- |
+| **Population Decrease** | Construction (26%), Health & Welfare (16%), Manufacturing (12%)   |
+| **Population Increase** | Manufacturing (18%), Technical Services (13%), Retail Trade (13%) |
+
+
+
+
+
+
+
+
+### Example Regions by Population Trend  
+
+#### 📉 Population Decrease Example — *Hwacheon-gun (화천군)*  
+<p align="left">
+  <img src="graphfolder/화천군_2022_industry_distribution.png" width="800">
+</p>
+
+| Industry Type | Percentage (2022) |
+| -------------- | ---------------- |
+| Construction | **26%** |
+| Health & Welfare Services | **16%** |
+| Manufacturing | **12%** |
+| Others | 46% |
+
+> The workforce in Hwacheon-gun is heavily concentrated in the construction and public welfare sectors,  
+> indicating reliance on traditional and public industries in population-declining areas.
+
+
+#### 📈 Population Increase Example — *Yongin-si (용인시)*  
+<p align="left">
+  <img src="graphfolder/용인시_2022_industry_distribution.png" width="800">
+</p>
+
+| Industry Type | Percentage (2022) |
+| -------------- | ---------------- |
+| Manufacturing | **18%** |
+| Professional & Technical Services | **13%** |
+| Retail Trade | **13%** |
+| Others | 56% |
+
+> Yongin-si shows a high share in manufacturing and technical services,  
+> reflecting an active industrial base and continuous job creation.
+
+### 🤖 Machine Learning Model — Prediction of Industrial Change (2023)
+
+To predict whether each regional industry will experience growth or decline, we trained multiple classifiers and selected an ensemble Voting model combining RandomForest and K-Nearest Neighbor (KNN) based on accuracy and F1 performance.
+
+#### ⚙️ Model Configuration
+| Model                 | Key Parameters                                                         |
+| --------------------- | ---------------------------------------------------------------------- |
+| **RandomForest**      | n_estimators=90, max_depth=17, min_samples_split=5, min_samples_leaf=1 |
+| **KNN**               | n_neighbors=8, metric=‘euclidean’, weights=‘distance’                  |
+| **Voting (Ensemble)** | Soft voting combining RF and KNN classifiers                           |
+
+
+#### 📈 Performance Evaluation
+
+| Model                 | Accuracy  | Macro F1 | Weighted F1 | Notes                                             |
+| --------------------- | --------- | -------- | ----------- | ------------------------------------------------- |
+| **RandomForest**      | 83.1%     | 0.73     | 0.83        | Strong generalization, stable recall              |
+| **KNN**               | 80.5%     | 0.72     | 0.80        | Sensitive to local patterns                       |
+| **Voting (RF + KNN)** | **83.1%** | **0.73** | **0.83**    | Best overall balance between recall and precision |
+
+🔍 Among all labels, small_increase and big_increase achieved the highest recall (0.92 and 0.74 respectively), while big_decrease showed lower recall due to smaller class size (22 samples).
 
 
 
